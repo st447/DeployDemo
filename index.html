@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Be My Valentine ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: "Arial", sans-serif;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #e63946;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .yes {
+            background-color: #e63946;
+            color: white;
+        }
+
+        .no {
+            background-color: #ccc;
+        }
+
+        .yes:hover {
+            background-color: #d62839;
+        }
+
+        .response {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 20px;
+            color: #6b0f1a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>💖 Will You Be My Valentine? 💖</h1>
+    <p>You make my days brighter and my heart happier.</p>
+
+    <button class="yes" onclick="recordResponse('Yes 💕')">
+        Yes 💕
+    </button>
+
+    <button class="no" onclick="recordResponse('No 🙈')">
+        No 🙈
+    </button>
+
+    <div id="response" class="response"></div>
+</div>
+
+<script>
+    function recordResponse(answer) {
+        // Display the response on the page
+        document.getElementById('response').textContent = `You chose: ${answer}`;
+
+        // Optional: store in localStorage (persistent in browser)
+        localStorage.setItem('valentineResponse', answer);
+
+        // Optional: retrieve it anytime
+        console.log('Stored response:', localStorage.getItem('valentineResponse'));
+    }
+</script>
+
+</body>
+</html>
