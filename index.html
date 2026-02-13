@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Halloween Date 🎃</title>
     <style>
         body {
@@ -109,13 +110,72 @@
         .grow-animation {
             animation: grow 0.5s ease;
         }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            body::before {
+                font-size: 30px;
+                top: 10px;
+            }
+
+            .card {
+                padding: 30px 20px;
+                margin: 20px;
+                max-width: 90%;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 25px;
+            }
+
+            button {
+                width: 100%;
+                padding: 15px 20px;
+                font-size: 18px;
+            }
+
+            .response {
+                font-size: 18px;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            body::before {
+                font-size: 25px;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <h1>🎃 Will You Be My Valentine? 👻</h1>
-    <p>Don't worry our response is completely confidential 😂</p>
+    <h1>🎃 Will You Be My Halloween Date? 👻</h1>
+    <p>Let's make this spooky season unforgettable together!</p>
 
     <div class="button-container">
         <button class="yes" id="yesBtn" onclick="recordResponse('Yes 🎃')">
@@ -144,7 +204,13 @@
         yesSize += 4;
         const yesBtn = document.getElementById('yesBtn');
         yesBtn.style.fontSize = yesSize + 'px';
-        yesBtn.style.padding = (12 + clickCount * 3) + 'px ' + (25 + clickCount * 5) + 'px';
+
+        // Adapt padding based on screen size
+        const isMobile = window.innerWidth <= 768;
+        const basePadding = isMobile ? 15 : 12;
+        const baseHorizontal = isMobile ? 20 : 25;
+
+        yesBtn.style.padding = (basePadding + clickCount * 3) + 'px ' + (baseHorizontal + clickCount * 5) + 'px';
 
         // Add grow animation
         yesBtn.classList.add('grow-animation');
